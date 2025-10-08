@@ -1,0 +1,512 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #F5F5DC;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+          background: #6f4d38;
+          background-size: cover;
+          border: none;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          height: 70px;
+          align-items: center;
+          
+        }
+
+        .navbar:before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.2); 
+          z-index: -1;
+        }
+
+        .navbar-brand, .navbar-nav > li > a {
+          color: #F5F5DC !important;
+          font-family: Poppins;
+          font-weight: bold;
+          font-size: larger;
+          margin-top: 10px;
+        }
+        .navbar-nav > li > a:hover, .navbar-brand:hover {
+          color: #f4a460 !important;
+        }
+        .navbar a.active {
+          color: #ff9933 !important;
+        }
+        .navbar a:hover {
+          color: #ffb366 !important;
+        }
+
+        @media (max-width: 767px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.5); 
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+        .navbar-collapse .navbar-nav {
+          float: none;
+          display: block; 
+          text-align: center;
+        }
+        .navbar-collapse .navbar-nav > li {
+          float: none;
+          margin-bottom: 10px;
+        }
+
+        .navbar-collapse .navbar-nav > li > a {
+          color: white;
+          font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover {
+          color: #f4a460;
+        }
+      }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #d6ccc2;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 32px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            color: #6f4d38;
+            font-family: Poppins;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #D2691E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            color: #8B4513;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #F4A460;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+          margin-bottom: 30px;
+          overflow: hidden;
+          text-align: justify;
+        }
+        .card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+        .card-body {
+          padding: 15px;
+        }
+        .card-body h3 {
+          color: #8b4513;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+         .card:hover {
+          transform: translateY(-10px);
+          transition: transform 0.3s ease;
+        }
+        .card:hover img {
+          transform: scale(1.1);
+          transition: transform 0.5s ease;
+        }
+
+        #pakaian .card img {     
+          height: 380px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+        #tradisi .card img {     
+          height: 320px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+        .tour-card {
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+        .tour-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .tour-card img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .tour-card:hover img {
+          transform: scale(1.1);
+        }
+
+        .tour-overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          padding: 20px;
+        }
+        .tour-card:hover .tour-overlay {
+          opacity: 1;
+        }
+
+        .tour-overlay h3 {
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #F5F5DC;
+          -webkit-text-stroke: 1px #d6ccc2;
+        }
+
+
+        .tour-overlay p {
+          font-size: 14px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .btn-tour {
+          background-color: #F5F5DC;
+          color: #8B4513 !important;
+          padding: 10px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: 0.3s;
+
+        }
+        .btn-tour:hover {
+          background-color: #d6ccc2;
+          color: #fff;
+        }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="dropdown">
+          <a href="#" class="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Provinsi <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="sulut.html">Sulawesi Utara</a></li>
+            <li><a href="gorontalo.html">Gorontalo</a></li>
+            <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+            <li><a href="sulbar.html">Sulawesi Barat</a></li>
+            <li><a href="sulsel.html">Sulawesi Selatan</a></li>
+            <li><a href="sultra.html" class="active">Sulawesi Tenggara</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Sulawesi Tenggara</h1>
+      <a href="#pakaian" class="btn btn-lg">Jelajahi Budaya</a>
+    </div>
+  </section>
+
+  <section id="pakaian" class="container">
+    <div class="section-title"><h2>Pakaian Adat & Simbol Budaya</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/baju adat tolaki.jpg">
+          <div class="card-body">
+            <h3>Suku Tolaki</h3>
+            <p>Dua busana adat paling dikenal dari suku Tolaki adalah Babu Nggawi untuk wanita dan Babu Nggawi Langgai untuk pria. Untuk wanita, 
+              atasan disebut <i>lipa hinoru</i>, sedangkan bawahan bernama <i>roo mendaa</i>, berupa rok panjang sewarna dengan atasannya. 
+              Busana ini dipercantik dengan manik-manik berwarna emas dan motif tradisional. Wanita Tolaki yang memakai pakaian ini juga dilengkapi 
+              berbagai aksesori, diantaranya seperti anting panjang <i>Kumenda, Toe Tole</i>, kalung panjang <i>Eno-Eno Sinolo</i>, kalung pendek 
+              <i>Eno-Eno Renggi</i>, gelang besar <i>Bolusu</i>, gelang kecil <i>Pipisu</i>, gelang permata <i>Poto</i>, dan gelang dua buah <i>O-Langge</i>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/baju adat muna.jpg">
+          <div class="card-body">
+            <h3>Suku Muna</h3>
+            <p>Busana perempuan terdiri dari atasan bernama <i>Bhadu</i>, bawahan <i>Bheta</i> (sarung), dan selendang <i>Kagogo</i>. 
+              Warna yang digunakan umumnya merah atau biru dengan bahan dasar satin. Perhiasan seperti gelang kaki dari emas atau logam 
+              sering menjadi pelengkap pakaian ini. Untuk laki-laki mengenakan <i>Bhatu</i> (baju atasan), <i>Bheta</i> (sarung), <i>Sala</i> 
+              (celana), <i>Songko</i> (kopiah), dan <i>Kamputui</i> (ikat kepala). Atasannya biasanya berlengan pendek dan berwarna putih, 
+              sedangkan ikat kepalanya dibuat dari kain bermotif batik. Sarung yang dikenakan memiliki pola garis horizontal dengan dominasi 
+              warna merah.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/baju adat buton.png">
+          <div class="card-body">
+            <h3>Adat Buton</h3>
+            <p>Keragaman pakaian adat Buton tak bisa dilepaskan dari keragaman latar belakang sosial budaya masyarakat 
+              Buton khususnya para pendiri awal kerajaan Buton yang juga mencerminkan sistem golongan sosial dalam masyarakat Buton. 
+              Kerajaan Buton didirikan oleh sekelompok orang yang berasal dari latar belakang suku dan etnis yang berbeda yaitu 
+              <i>Dungkusangia</i> yang berasal dari Tiongkok-Mongol, <i>Mia Patamiana</i> dari Melayu, <i>Wa Kaa Kaa</i> dari Jawa-Mongol 
+              dan <i>Sibatara</i> dari Jawa. Ciri khas utama pakaian adat Buton terletak pada ikat pinggang berhias rumbai-rumbai yang dikenal 
+              dengan sebutan <i>kaboneka tanga</i>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuliner" class="container">
+    <div class="section-title"><h2>Kuliner Khas Sulawesi Tenggara</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/sinonggi.jpg">
+          <div class="card-body">
+            <h3>Sinonggi</h3>
+            <p>Sinonggi berasal dari bahasa suku Tolaki yaitu <i>o songgi</i> atau <i>posonggi</i>, terbuat dari sagu. Makanan khas ini memiliki tekstur 
+              kenyal dan biasanya disantap dengan kuah ikan atau sayur. Selain mencerminkan kearifan lokal dan budaya kuliner masyarakat Tolaki, Sinonggi juga memiliki 
+              nilai gizi tinggi karena kandungan seratnya yang baik untuk pencernaan serta memberikan energi yang tahan lama.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/karasi.jpg">
+          <div class="card-body">
+            <h3>Karasi</h3>
+            <p>Karasi adalah camilan tradisional yang terbuat dari tepung beras yang diolah menjadi adonan tipis, kemudian digoreng hingga renyah dan berwarna keemasan. 
+              Karasi memiliki rasa manis dan tekstur yang unik. Karasi bukan hanya sekadar camilan, tetapi juga bagian dari warisan kuliner Sulawesi Tenggara yang kaya 
+              akan cita rasa dan sejarah. Salah satu keunikan karasi adalah bentuknya yang unik seperti sarang laba-laba.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/kasuami.jpg">
+          <div class="card-body">
+            <h3>Kasuami</h3>
+            <p>Kasuami dikenal sebagai hidangan leluhur suku Wakatobi yang sampai di Pulau Buton. Kasuami berbahan utama singkong, umumnya berbentuk tumpeng dan berwarna 
+              putih kekuning-kuningan. Kasuami diperkirakan menjadi makanan sehari-hari nelayan dan petani, karena beras tidak bisa ditanam di daerah tersebut. 
+              Kasuami biasanya disajikan bersama ikan parende. Kasuami melambangkan persaudaraan dan kedekatan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tradisi" class="container">
+    <div class="section-title"><h2>Tradisi Sulawesi Tenggara</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/upacara posobhaghoo motonuno.webp">
+          <div class="card-body">
+            <h3>Upacara Posobhaghoo Motonuno</h3>
+            <p>Upacara Posobhaghoo Motonuno adalah upacara adat yang dilakukan oleh Suku Muna. Secara etimologis, kata <i>Posobhaghoo</i> memiliki arti mencampurkan, 
+              sedangkan <i>Motonuno</i> adalah nama sebuah danau kecil yang terletak di wilayah Muna. Nama ini mencerminkan inti dari upacara yang melibatkan pencampuran 
+              air dari Danau Motonuno dengan air dari Danau Wulamoni. Sebuah danau lain yang diyakini memiliki hubungan spiritual dengan Motonuno. Pencampuran air kedua 
+              danau ini bukan sekadar aktivitas fisik, melainkan sarat dengan simbolisme yang mendalam tentang persatuan dan keseimbangan dalam alam serta kehidupan masyarakat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/upacara adat mosohe.jpeg">
+          <div class="card-body">
+            <h3>Upacara Mosohe</h3>
+            <p>Upacara adat Mosehe adalah upacara adat Suku Tolaki yang bertujuan untuk memohon keselamatan, kesejahteraan, dan penyelesaian konflik. Upacara ini dilakukan dengan 
+              berbagai ritual, seperti mempersembahkan sesaji kepada para dewa (umumnya kerbau putih), menari, dan menyanyi. Mosehe telah berlangsung turun temurun sejak abad ke-13.
+              Mosehe merupakan wujud kepercayaan mereka terhadap para dewa dan merupakan sarana untuk memperkuat ikatan komunitas dan membangun kebersamaan. Selain itu, upacara Mosehe 
+              juga menjadi simbol rasa syukur masyarakat Tolaki atas berkah dan keharmonisan hidup yang telah diberikan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/karia.jpg">
+          <div class="card-body">
+            <h3>Karia</h3>
+            <p>Karia adalah upacara adat Suku Muna yang menjadi ritual wajib bagi gadis yang telah memasuki masa dewasa namun belum menikah. Tradisi ini dilaksanakan secara turun-temurun 
+              sebagai bentuk penyucian diri dan simbol peralihan dari remaja ke dewasa. Prosesi diawali dengan musyawarah keluarga dan tokoh adat, dilanjutkan dengan delapan tahapan ritual 
+              seperti <i>kafoluku, kabhansule,</i> dan <i>tari Linda</i>. Dalam upacara ini, para gadis menjalani masa <i>kaghombo</i> (pingitan) di ruang khusus bernama <i>songi</i> selama beberapa hari. 
+              Melalui Karia, perempuan Muna dianggap telah “lahir kembali” dalam keadaan suci, matang secara jasmani dan rohani, serta siap menjalani kehidupan sebagai perempuan dewasa.
+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="destinasi" class="container">
+    <div class="section-title"><h2>Jelajahi Destinasi Wisata</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="tour-card"  onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/air terjun moramo.jpeg">
+          <div class="tour-overlay">
+            <h3>Air Terjun Moramo</h3>
+            <p>Air terjun bertingkat tujuh di Konawe Selatan yang memukau dengan kejernihan air dan suasana alam yang asri.</p>
+            <a href="https://maps.app.goo.gl/DDR5STbrbVLnQV8g9" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/danau biru kolaka.jpg">
+          <div class="tour-overlay">
+            <h3>Danau Biru Kolaka</h3>
+            <p>Danau alami berair jernih kebiruan yang dikelilingi pepohonan rindang, menciptakan panorama menenangkan.</p>
+            <a href="https://maps.app.goo.gl/V6wtfTGS1qhMpUiC6" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/pulau labengki.jpg">
+          <div class="tour-overlay">
+            <h3>Pulau Labengki</h3>
+            <p>Pulau eksotis dengan gugusan karst dan air laut biru toska, sering dijuluki “Raja Ampat-nya Sulawesi Tenggara”.</p>
+            <a href="https://maps.app.goo.gl/manCxw2dFjJM1rTw5" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/puncak ahuawali.jpg">
+          <div class="tour-overlay">
+            <h3>Puncak Ahuawali</h3>
+            <p>Tempat wisata pegunungan yang menawarkan pemandangan awan menakjubkan dan udara sejuk khas dataran tinggi Konawe.</p>
+            <a href="https://maps.app.goo.gl/2Ur1E8hphqqSFnau8" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/air panas wawolesea.jpg">
+          <div class="tour-overlay">
+            <h3>Air Panas Wawolesea</h3>
+            <p>Sumber air panas alami di Konawe Utara dengan kandungan belerang yang dipercaya menyehatkan kulit.</p>
+            <a href="https://maps.app.goo.gl/pK2dbEi1LvrgExmD9" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/batu bhuti.png">
+          <div class="tour-overlay">
+            <h3>Batu Bhuti Bau-Bau</h3>
+            <p>Destinasi pantai indah di Kota Baubau yang terkenal dengan batu karang besar berwarna putih dan panorama laut biru yang memukau.</p>
+            <a href="https://maps.app.goo.gl/ppwb4AUXkcE3HMaH7" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

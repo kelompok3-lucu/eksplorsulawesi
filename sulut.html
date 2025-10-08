@@ -1,0 +1,504 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #F5F5DC;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+          background: #6f4d38;
+          background-size: cover;
+          border: none;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          height: 70px;
+          align-items: center;
+          
+        }
+
+        .navbar:before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.2); 
+          z-index: -1;
+        }
+
+        .navbar-brand, .navbar-nav > li > a {
+          color: #F5F5DC !important;
+          font-family: Poppins;
+          font-weight: bold;
+          font-size: larger;
+          margin-top: 10px;
+        }
+        .navbar-nav > li > a:hover, .navbar-brand:hover {
+          color: #f4a460 !important;
+        }
+        .navbar a.active {
+          color: #ff9933 !important;
+        }
+        .navbar a:hover {
+          color: #ffb366 !important;
+        }
+
+        @media (max-width: 767px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.5); 
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+        .navbar-collapse .navbar-nav {
+          float: none;
+          display: block; 
+          text-align: center;
+        }
+        .navbar-collapse .navbar-nav > li {
+          float: none;
+          margin-bottom: 10px;
+        }
+
+        .navbar-collapse .navbar-nav > li > a {
+          color: white;
+          font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover {
+          color: #f4a460;
+        }
+      }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #d6ccc2;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 32px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            color: #6f4d38;
+            font-family: Poppins;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #D2691E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            color: #8B4513;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #F4A460;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+          margin-bottom: 30px;
+          overflow: hidden;
+          text-align: justify;
+        }
+        .card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+        .card-body {
+          padding: 15px;
+        }
+        .card-body h3 {
+          color: #8b4513;
+          font-size: 20px;
+          text-align: left;
+          font-weight: bold;
+        }
+
+        .card:hover {
+          transform: translateY(-10px);
+          transition: transform 0.3s ease;
+        }
+        .card:hover img {
+          transform: scale(1.1);
+          transition: transform 0.5s ease;
+        }
+
+        #pakaian .card img {     
+          height: 380px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+         #tradisi .card img {     
+          height: 320px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+        .tour-card {
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+        .tour-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .tour-card img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .tour-card:hover img {
+          transform: scale(1.1);
+        }
+
+        .tour-overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          padding: 20px;
+        }
+        .tour-card:hover .tour-overlay {
+          opacity: 1;
+        }
+
+        .tour-overlay h3 {
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #F5F5DC;
+          -webkit-text-stroke: 1px #d6ccc2;
+        }
+
+        .tour-overlay p {
+          font-size: 14px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .btn-tour {
+          background-color: #F5F5DC;
+          color: #8B4513 !important;
+          padding: 10px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: 0.3s;
+
+        }
+        .btn-tour:hover {
+          background-color: #d6ccc2;
+          color: #fff;
+        }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="dropdown">
+          <a href="#" class="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Provinsi <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="sulut.html" class="active">Sulawesi Utara</a></li>
+            <li><a href="gorontalo.html">Gorontalo</a></li>
+            <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+            <li><a href="sulbar.html">Sulawesi Barat</a></li>
+            <li><a href="sulsel.html">Sulawesi Selatan</a></li>
+            <li><a href="sultra.html">Sulawesi Tenggara</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Sulawesi Utara</h1>
+      <a href="#pakaian" class="btn btn-lg">Jelajahi Budaya</a>
+    </div>
+  </section>
+
+ 
+  <section id="pakaian" class="container">
+    <div class="section-title"><h2>Pakaian Adat & Simbol Budaya</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Baju Adat Bitung.png">
+          <div class="card-body">
+            <h3>Pakaian Adat Bitung</h3>
+            <p>Pakaian adat Bitung yang dikenakan perempuan disebut <i>Baju Bodo</i> atau <i>Kebaya Encim</i>, 
+                berupa kebaya lengan panjang berwarna kuning cerah dengan sulaman motif bunga warna-warni, 
+                dipadukan dengan rok panjang senada dan lilitan selendang di pinggang, dilengkapi hiasan bunga segar di rambut yang mencerminkan perpaduan <i>budaya Melayu, Minahasa, dan kolonial</i> khas masyarakat pesisir Bitung dengan warna cerah melambangkan karakter <i>hangat dan ceria</i>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Baju Adat Bolaang Mongondow.png">
+          <div class="card-body">
+            <h3>Pakaian Adat Bolaang Mongondow </h3>
+            <p>Pakaian adat <i>Bolaang Mongondow</i> untuk perempuan terdiri dari baju kurung beludru merah maroon 
+                lengan panjang dengan bordiran benang emas yang membentuk motif tradisional, dilengkapi kalung berlapis 
+                <i>Dale ko Bakid</i> dari manik-manik emas, aksesori bahu berbentuk kipas <i>Pontulu</i>, dan mahkota 
+                kepala <i>Totopong</i> berhias bunga emas yang melambangkan kemakmuran, keagungan, kemuliaan, dan harapan 
+                perlindungan bagi pemakainya.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Minahasa.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Minahasa</h3>
+            <p>Baju adat Minahasa dari Sulawesi Utara menampilkan keindahan khas dengan warna-warna cerah seperti merah dan emas, dihiasi ornamen geometris
+               dan aksesoris kepala yang megah seperti mahkota dengan bulu burung yang melambangkan keagungan dan keberanian. Pakaian ini dikenakan dalam 
+               berbagai upacara adat dan acara resmi, mencerminkan identitas budaya masyarakat Minahasa yang kaya akan tradisi dan nilai-nilai leluhur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuliner" class="container">
+    <div class="section-title"><h2>Kuliner Khas Sulawesi Utara</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/bubur manado.jpg">
+          <div class="card-body">
+            <h3>Tinutuan (Bubur Manado)</h3>
+            <p>Tinutuan adalah bubur khas <i>Manado</i> yang menyehatkan, terbuat dari <i>campuran beras</i> dan berbagai 
+                sayuran seperti <i>kangkung, bayam, jagung, ubi, dan kemangi.</i> Hidangan ini biasanya disajikan 
+                pagi hari dengan pendamping seperti sambal roa, ikan cakalang, atau brenebon (sup kacang merah) 
+                dengan harga yang sangat terjangkau.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/ayam woku.jpg">
+          <div class="card-body">
+            <h3>Ayam Woku</h3>
+            <p>Ayam Woku adalah teknik memasak khas <i>Manado</i> yang menghasilkan hidangan berkuah kuning keemasan dengan aroma rempah yang 
+                kuat dan kompleks. Ciri khasnya adalah penggunaan <i>daun kemangi</i> dalam jumlah banyak di akhir masak, dan bisa diaplikasikan pada 
+                ayam atau ikan, menghasilkan cita rasa <i>gurih, pedas, dan sedikit asam.</i></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Dabu-Dabu.jpg">
+          <div class="card-body">
+            <h3>Dabu-Dabu</h3>
+            <p>Dabu-dabu adalah sambal khas <i>Sulawesi Utara</i> yang segar, terbuat dari <i>irisan cabai, tomat, bawang merah, dan diberi perasan jeruk
+                nipis.</i>  Sambal ini biasanya disajikan sebagai pendamping hidangan laut atau bubur, dan memiliki beberapa variasi <i>tingkat kepedasan 
+                serta keasaman.</i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tradisi" class="container">
+    <div class="section-title"><h2>Tradisi Sulawesi Utara</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Tradisi Mekiwuka.jpg">
+          <div class="card-body">
+            <h3>Tradisi Mekiwuka</h3>
+            <p>Tradisi <i>Mekiwuka</i> adalah upacara adat Suku Minahasa di Manado yang dilaksanakan setiap akhir tahun sebagai wujud syukur atas berkat yang diterima dan 
+                permohonan perlindungan untuk tahun mendatang. Upacara ini dirayakan dengan membunyikan alat musik tradisional sambil bernyanyi dan berkeliling dari rumah 
+                ke rumah seperti pawai dari malam pergantian tahun hingga menjelang pagi, menciptakan suasana kebersamaan dalam menyambut tahun baru.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Tradisi Tulude.jpg">
+          <div class="card-body">
+            <h3>Tradisi Tulude</h3>
+            <p>Tradisi <i>Tulude</i> adalah upacara adat tahunan dari kepulauan Sangihe, Talaud, dan Sitaro sebagai bentuk syukur kepada Mawu Ruata Ghenggona Langi (Tuhan Yang Mahakuasa) 
+                dan warisan sakral dari para leluhur. Upacara ini mengandung makna kerukunan, persatuan, dan kebersamaan yang diwujudkan melalui tradisi makan bersama dengan 
+                hidangan dari setiap keluarga yang ditempatkan di atas meja panjang sebagai simbol solidaritas dan kesetaraan masyarakat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Tradisi Bahoco.jpg">
+          <div class="card-body">
+            <h3>Tradisi Bahoco</h3>
+            <p>Tradisi <i>Bahoco</i> adalah tradisi mandi bersama masyarakat Sangihe, Sulawesi Utara, yang dilakukan di sungai atau laut sebagai ritual pembersihan diri secara spiritual dan fisik 
+                menjelang perayaan besar atau tahun baru. Tradisi ini melambangkan pembuangan hal-hal negatif dari tahun sebelumnya dan menjadi momen kebersamaan yang mempererat tali 
+                persaudaraan serta kerukunan antarwarga masyarakat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destinasi" class="container">
+  <div class="section-title"><h2>Jelajahi Destinasi Wisata</h2></div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pulau Lembeh.jpg">
+        <div class="tour-overlay">
+          <h3>Pulau Lembeh</h3>
+          <p>Pulau Lembeh di Bitung terkenal dengan keindahan bawah lautnya yang menjadi surga bagi penyelam makro di dunia.</p>
+          <a href="https://maps.app.goo.gl/tLETr2kc5KTmPiQf8" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pulau Lihaga.jpg">
+        <div class="tour-overlay">
+          <h3>Pulau Lihaga</h3>
+          <p>Pulau Lihaga di Minahasa Utara memiliki pasir putih halus dan air laut biru jernih yang cocok untuk snorkeling dan bersantai.</p>
+          <a href="https://maps.app.goo.gl/QnodQCho6ca9bn4z6" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pulau Mahoro.jpg">
+        <div class="tour-overlay">
+          <h3>Pulau Mahoro</h3>
+          <p>Pulau Mahoro di Sangihe menawarkan pantai berpasir putih dan keindahan bawah laut yang masih alami dan memukau.</p>
+          <a href="https://maps.app.goo.gl/ytjmbNKRYG9ymh5u5" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pantai Patokan Jiko.jpg">
+        <div class="tour-overlay">
+          <h3>Pantai Patokan Jiko</h3>
+          <p>Pantai Patokan Jiko memiliki pasir putih bersih, air jernih, dan pemandangan indah yang cocok untuk berenang dan snorkeling.</p>
+          <a href="https://maps.app.goo.gl/SNki68PQL1H1QFQZ8" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Monumen Yesus Memberkati.avif">
+        <div class="tour-overlay">
+          <h3>Monumen Yesus Memberkati</h3>
+          <p>Monumen Yesus Memberkati di Minahasa adalah patung Yesus tertinggi di Asia dan ikon wisata religius Kota Manado.</p>
+          <a href="https://maps.app.goo.gl/3qbddZD5EWoMgWqn8" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pulau Ponteng.jpg">
+        <div class="tour-overlay">
+          <h3>Pulau Ponteng</h3>
+          <p>Pulau Ponteng di Minahasa Utara menawarkan pantai alami dengan pasir putih dan air laut jernih yang mempesona.</p>
+          <a href="https://maps.app.goo.gl/tFACeYZw989e1v7i9" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

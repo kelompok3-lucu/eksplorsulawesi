@@ -1,0 +1,508 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #F5F5DC;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+          background: #6f4d38;
+          background-size: cover;
+          border: none;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          height: 70px;
+          align-items: center;
+          
+        }
+
+        .navbar:before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.2); 
+          z-index: -1;
+        }
+
+        .navbar-brand, .navbar-nav > li > a {
+          color: #F5F5DC !important;
+          font-family: Poppins;
+          font-weight: bold;
+          font-size: larger;
+          margin-top: 10px;
+        }
+        .navbar-nav > li > a:hover, .navbar-brand:hover {
+          color: #f4a460 !important;
+        }
+        .navbar a.active {
+          color: #ff9933 !important;
+        }
+        .navbar a:hover {
+          color: #ffb366 !important;
+        }
+
+        @media (max-width: 767px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.5); 
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+        .navbar-collapse .navbar-nav {
+          float: none;
+          display: block; 
+          text-align: center;
+        }
+        .navbar-collapse .navbar-nav > li {
+          float: none;
+          margin-bottom: 10px;
+        }
+
+        .navbar-collapse .navbar-nav > li > a {
+          color: white;
+          font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover {
+          color: #f4a460;
+        }
+      }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #d6ccc2;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 32px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            color: #6f4d38;
+            font-family: Poppins;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #D2691E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            color: #8B4513;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #F4A460;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+          margin-bottom: 30px;
+          overflow: hidden;
+          text-align: justify;
+        }
+        .card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+        .card-body {
+          padding: 15px;
+        }
+        .card-body h3 {
+          color: #8b4513;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .card:hover {
+          transform: translateY(-10px);
+          transition: transform 0.3s ease;
+        }
+        .card:hover img {
+          transform: scale(1.1);
+          transition: transform 0.5s ease;
+        }
+
+        #pakaian .card img {     
+          height: 380px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+         #tradisi .card img {     
+          height: 320px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+        .tour-card {
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+        .tour-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .tour-card img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .tour-card:hover img {
+          transform: scale(1.1);
+        }
+
+        .tour-overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          padding: 20px;
+        }
+        .tour-card:hover .tour-overlay {
+          opacity: 1;
+        }
+
+        .tour-overlay h3 {
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #F5F5DC;
+          -webkit-text-stroke: 1px #d6ccc2;
+        }
+
+        .tour-overlay p {
+          font-size: 14px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .btn-tour {
+          background-color: #F5F5DC;
+          color: #8B4513 !important;
+          padding: 10px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: 0.3s;
+
+        }
+        .btn-tour:hover {
+          background-color: #d6ccc2;
+          color: #fff;
+        }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="dropdown">
+          <a href="#" class="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Provinsi <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="sulut.html">Sulawesi Utara</a></li>
+            <li><a href="gorontalo.html">Gorontalo</a></li>
+            <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+            <li><a href="sulbar.html" class="active">Sulawesi Barat</a></li>
+            <li><a href="sulsel.html">Sulawesi Selatan</a></li>
+            <li><a href="sultra.html">Sulawesi Tenggara</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Sulawesi Barat</h1>
+      <a href="#pakaian" class="btn btn-lg">Jelajahi Budaya</a>
+    </div>
+  </section>
+
+ 
+  <section id="pakaian" class="container">
+    <div class="section-title"><h2>Pakaian Adat & Simbol Budaya</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/baju adat mandar.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Mandar</h3>
+            <p>Pakaian adat Suku Mandar dikenal dengan nama <i>Pattuqduq Towaine</i> untuk wanita dan dan baju <i>Pokko</i> sebagai bagian dari <i>Pattuqduq Towaine</i>. 
+              Baju tersebut dipadukan dengan sarung tenun khas Mandar yang disebut <i>Lipa' Saqbe</i>. Pria mengenakan jas lengan panjang dengan celana panjang, 
+              dilengkapi dengan kain sarung tenun yang dililitkan di pinggang. Wanita Mandar melengkapi penampilan mereka dengan aksesoris seperti kalung koin emas yang disebut 
+              <i>Tombi Diala</i>, anting-anting <i>Dali</i>, dan gelang tangan besar yang disebut <i>Gelang Balleq</i>. Pria biasanya mengenakan ikat kepala tradisional yang disebut <i>Songkok To Bone</i>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/baju adat mamasa.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Mamasa</h3>
+            <p>Pakaian adat ini menunjukkan status sosial,  kehormatan, dan kekuasaan masyarakat Mamasa. Setiap detail memiliki makna filosofis, <i>Sassang</i> memiliki simbol kemakmuran dan kesejahteraan 
+              yang disetiap warna manik-maniknya terdapat gambaran dari warna ukiran pada rumah adat Mamasa, <i>Bayu pongko, Talana tallu buku,</i> dan <i>sambu</i> memiliki simbol kebesaran bagi masyarakat mamasa, 
+              <i>Pallawa</i> yang dapat dilihat di bagian pinggiran baju  memiliki simbol kebangsawanan yang bermakna agar yang memakainya dapat terhindar dari bahaya, <i>Sapu</i> dan juga <i>Palo-palo</i> adalah 
+              aksesoris kepala yang menggambarkan rumah adat mamasa dengan bulu yang memiliki arti keberanian, kehormatan, dan keanggunan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/baju adat mamuju.png">
+          <div class="card-body">
+            <h3>Pakaian Adat Mamuju</h3>
+            <p>Baju adat Kalumpang Mamuju disebut <i>Bei</i> atau <i>Kayak Bei</i>, adalah pakaian tradisional yang dihiasi manik-manik kerang dan memiliki motif serta warna unik, dikenakan untuk upacara adat 
+              dan pernikahan sebagai simbol identitas budaya. Penggunaan kerang dan biji-bijian pada pakaian tradisional Kalumpang menunjukkan adanya berbagai interaksi dan adaptasi terhadap lingkungan yang lebih luas. 
+              Meskipun saat ini Kalumpang berada di pedalaman, ada kemungkinan bahwa pada masa lalu daerah ini lebih dekat ke pesisir atau memiliki jalur akses yang memudahkan pertukaran barang dengan masyarakat pesisir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuliner" class="container">
+    <div class="section-title"><h2>Kuliner Khas Sulawesi Barat</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/makanan khas_jepa.jpg">
+          <div class="card-body">
+            <h3>Jepa</h3>
+            <p>Jepa adalah makanan tradisional yang terbuat dari singkong atau ubi yang diparut terlebih dahulu 
+              kemudian diperas, dan kemudian diayak dan dicampurkan dengan parutan buah kelapa untuk memberi 
+              rasa gurih dan nikmat. Makanan ini kaya karbohidrat sehingga dijadikan pengganti nasi, terutama 
+              oleh nelayan Mandar saat melaut karena mudah disajikan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Bau peapi_sulbar.jpg">
+          <div class="card-body">
+            <h3>Bau Peapi</h3>
+            <p>Bau Peapi dalam Bahasa Mandar berasal dari kata <i>bau</i> (ikan) dan <i>peapi</i> (dimasak). 
+              Bau Peapi dibuat dari <i>pammaissang</i> (asam mangga), <i>lasuna mandar</i> (bawang mandar), 
+              dan <i>minna mandar</i> (minyak mandar). Cita rasa yang khas dari Bau Peapi juga diperoleh 
+              dari cara memasak yang tradisional, menggunakan kuali tanah liat di atas <i>pallu</i> 
+              (tungku dari tanah liat). Namun kini umumnya menggunakan kompor gas dan kuali aluminium.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Golla kambu_sulbar.png">
+          <div class="card-body">
+            <h3>Golla Kambu</h3>
+            <p>Dalam bahasa Mandar, istilah <i>Golla</i> berarti gula atau manisan, sedangkan <i>Kambu</i> merujuk pada bentuk bungkusan.
+            Golla Kambu terbuat dari kombinasi kelapa parut, beras ketan, dan gula merah yang dibungkus dengan daun pisang atau daun kelapa muda. 
+            Teksturnya kenyal, rasa manisnya alami, dan aromanya menggairahkan berkat metode memasak yang tetap menggunakan cara tradisional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tradisi" class="container">
+    <div class="section-title"><h2>Tradisi Sulawesi Barat</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/sayyang pattudu.jpg">
+          <div class="card-body">
+            <h3>Sayyang Pattuqduq </h3>
+            <p>Tradisi <i>Sayyang Pattu'du</i> atau kuda menari adalah tradisi syukuran terhadap anak-anak yang berhasil mengkhatamkan Al-Qur'an sebanyak 30 juz. 
+              Syukuran itu dilakukan dalam bentuk arakan keliling kampung dengan menggunakan seekor kuda yang sudah dihias. Sesekali, kuda itu mengangkat kaki 
+              depannya tinggi-tinggi, sementara empat pria pendamping sigap mengendalikannya. Iringan musik rebana terus terdengar meriah, disambut dengan 
+              kegembiraan oleh warga di setiap rumah yang dilewati. Pertunjukan ini merupakan upaya melestarikan tradisi turun-temurun dari nenek moyang.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/sandeq race.jpg">
+          <div class="card-body">
+            <h3>Sandeq Heritage Festival </h3>
+            <p>Sandeq Heritage Festival atau  Festival Warisan (Budaya) Sandeq adalah kegiatan yang bertujuan melestarikan salah satu bentuk budaya di Provinsi Sulawesi Barat 
+              yang telah diakui sebagai Warisan Budaya Tak Benda oleh Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi pada tahun 2016. Perahu Sandeq merupakan simbol 
+              kehebatan maritim orang Mandar. Kehebatan para pelaut ulung tanah Mandar dibuktikan melalui pelayaran yang menggunakan perahu bercadik tersebut. Sandeq kerap 
+              digunakan untuk mencari nafkah sehari-hari di tengah luasnya lautan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/mebaba'.jpg">
+          <div class="card-body">
+            <h3>Mebaba'</h3>
+            <p>Mebaba' merupakan suatu tradisi yang dilakukan oleh masyarakat Mamasa sebagai bagian dari pesta atau acara kematian yang dikenal dengan Rambu Solo'. 
+              Mebaba' ini adalah pemotongan hewan kurban berupa kerbau ataupun babi yang berasal dari keluarga, kerabat maupun dari orang-orang yang turut membantu 
+              keluarga yang sedang berduka. Daging hasil sembelihan digunakan sebagai lauk atau dibagikan kepada tamu. Tradisi ini biasanya dilakukan setelah pemakaman, 
+              namun bisa juga sebelum jenazah dimakamkan. Bagi keluarga yang dianggap berkecukupan atau mempunyai status sosial tinggi, Mebaba' dilaksanakan setiap hari 
+              selama acara Rambu Solo' berlangsung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destinasi" class="container">
+    <div class="section-title"><h2>Jelajahi Destinasi Wisata</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/pulau karampuang.webp">
+          <div class="tour-overlay">
+            <h3>Pulau Karampuang</h3>
+            <p>Pulau eksotis dengan air laut jernih dan pesona bawah laut menakjubkan, cocok untuk snorkeling dan relaksasi.</p>
+            <a href="https://maps.app.goo.gl/NkH2S6ZQjr5c1ozf7" target="_blank"class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/bukit senayan.jpg">
+          <div class="tour-overlay">
+            <h3>Bukit Senayan</h3>
+            <p>Destinasi alam di Bulo yang dijuluki Negeri di Atas Awan, menawarkan pemandangan lautan awan dan suasana sejuk khas pegunungan.</p>
+            <a href="https://maps.app.goo.gl/NkH2S6ZQjr5c1ozf7" target="_blank"class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/puncak kunyi.jpg">
+          <div class="tour-overlay">
+            <h3>Puncak Kunyi</h3>
+            <p>Wisata Alam Puncak Kunyi menawarkan suasana yang sejuk dan asri, dengan latar belakang pemandangan perbukitan yang hijau dan aliran sungai yang jernih.</p>
+            <a href="https://maps.app.goo.gl/NkH2S6ZQjr5c1ozf7" target="_blank"class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/museum mandar.jpg">
+          <div class="tour-overlay">
+            <h3>Museum Mandar Majene</h3>
+            <p>Museum Mandar Majene menyimpan kekayaan budaya Mandar yang autentik. Koleksi benda bersejarahnya mencakup alat musik, pakaian adat, hingga peninggalan kolonial.</p>
+            <a href="https://maps.app.goo.gl/NkH2S6ZQjr5c1ozf7" target="_blank"class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/tondok bakaru.jpg">
+          <div class="tour-overlay">
+            <h3>Tondok Bakaru</h3>
+            <p>Desa wisata di Mamasa yang dikelilingi perbukitan hijau dan rumah adat khas Mamasa, menawarkan suasana tenang serta keindahan budaya dan alam pedesaan.</p>
+            <a href="https://maps.app.goo.gl/NkH2S6ZQjr5c1ozf7" target="_blank"class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/pantai dato.jpg">
+          <div class="tour-overlay">
+            <h3>Pantai Dato</h3>
+            <p>Pantai indah dengan pasir putih, tebing batu kapur, dan air laut biru jernih, cocok untuk bersantai sambil menikmati panorama matahari terbenam di pesisir Majene.</p>
+            <a href="https://maps.app.goo.gl/NkH2S6ZQjr5c1ozf7" target="_blank"class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+     
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #F5F5DC;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+         .navbar {
+          background-color: #6F4D38;
+          background-size: cover;
+          border: none;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          height: 70px;
+          align-items: center;
+        }
+
+        .navbar:before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.2); 
+          z-index: -1;
+        }
+        
+        .navbar-brand, .navbar-nav > li > a {
+          color: #F5F5DC !important;
+          font-family: Poppins;
+          font-weight: bold;
+          font-size: larger;
+          margin-top: 10px;
+        }
+        .navbar-nav > li > a:hover, .navbar-brand:hover {
+          color: #f4a460 !important;
+        }
+        .navbar a.active {
+          color: #ff9933 !important;
+        }
+        .navbar a:hover {
+          color: #ffb366 !important;
+        }
+
+        @media (max-width: 767px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.5); 
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+        .navbar-collapse .navbar-nav {
+          float: none;
+          display: block; 
+          text-align: center;
+        }
+        .navbar-collapse .navbar-nav > li {
+          float: none;
+          margin-bottom: 10px;
+        }
+
+        .navbar-collapse .navbar-nav > li > a {
+          color: white;
+          font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover {
+          color: #f4a460;
+        }
+      }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #d6ccc2;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 32px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            color: #6f4d38;
+            font-family: Poppins;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #D2691E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            color: #8B4513;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #F4A460;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+          margin-bottom: 30px;
+          overflow: hidden;
+          text-align: justify;
+        }
+        .card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+        .card-body {
+          padding: 15px;
+        }
+        .card-body h3 {
+          color: #8b4513;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        #pakaian .card img {     
+          height: 320px;      
+          object-fit: cover;
+          object-position: top;
+        }
+        .card:hover {
+          transform: translateY(-10px);
+          transition: transform 0.3s ease;
+        }
+        .card:hover img {
+          transform: scale(1.1);
+          transition: transform 0.5s ease;
+        }
+
+        .tour-card {
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+        .tour-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .tour-card img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .tour-card:hover img {
+          transform: scale(1.1);
+        }
+
+        .tour-overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          padding: 20px;
+        }
+        .tour-card:hover .tour-overlay {
+          opacity: 1;
+        }
+
+        .tour-overlay h3 {
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #F5F5DC;
+          -webkit-text-stroke: 1px #d6ccc2;      
+        }
+
+        .tour-overlay p {
+          font-size: 14px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .btn-tour {
+          background-color:#F5F5DC;
+          color: #8B4513 !important;
+          padding: 10px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: 0.3s;
+
+        }
+        .btn-tour:hover {
+          background-color: #d6ccc2;
+          color: #fff;
+        }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="dropdown">
+          <a href="#" class="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Provinsi <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="sulut.html">Sulawesi Utara</a></li>
+            <li><a href="gorontalo.html">Gorontalo</a></li>
+            <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+            <li><a href="sulbar.html">Sulawesi Barat</a></li>
+            <li><a href="sulsel.html" class="active">Sulawesi Selatan</a></li>
+            <li><a href="sultra.html">Sulawesi Tenggara</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Sulawesi Selatan</h1>
+      <a href="#pakaian" class="btn btn-lg">Jelajahi Budaya</a>
+    </div>
+  </section>
+
+ 
+  <section id="pakaian" class="container">
+    <div class="section-title"><h2>Pakaian Adat & Simbol Budaya</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/bodo.jpg">
+          <div class="card-body">
+            <h3>Baju Bodo</h3>
+            <p>Baju Bodo adalah pakaian adat perempuan Bugis-Makassar berbentuk persegi dan longgar, 
+              dipadukan dengan sarung sutra dan perhiasan emas. Warna Baju Bodo melambangkan status sosial, 
+              seperti merah untuk bangsawan dan hijau untuk kalangan menengah. Pria mengenakan Baju <i>Bella Dada</i> 
+              dengan sarung <i>Lipa’ Sabbe</i> dan keris sebagai simbol kehormatan, mencerminkan keanggunan dan budaya 
+              Bugis-Makassar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/toraja.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Toraja</h3>
+            <p>Pakaian tradisional Toraja dari Sulawesi Selatan memiliki ciri khas warna-warna 
+              terang seperti merah dan kuning, lengkap dengan hiasan manik-manik yang melambangkan 
+              kemakmuran. Wanita biasanya menggunakan penghias kepala yang disebut <i>Pa’tannun</i>, 
+              sementara pria mengenakan aksesori berbentuk tanduk yang melambangkan keberanian. 
+              Busana ini menunjukkan keindahan sekaligus kehormatan dari budaya Toraja.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/rongkong.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Rongkong</h3>
+            <p>Baju <i>Sakalla'</i> adalah pakaian adat tradisional khusus untuk wanita dari Suku Rongkong 
+              di Sulawesi Selatan. Pakaian ini memiliki berbagai variasi warna yang berbeda, 
+              mencerminkan perbedaan tingkat stratifikasi sosial di antara masyarakat Suku Rongkong</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuliner" class="container">
+    <div class="section-title"><h2>Kuliner Khas Sulawesi Selatan</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/coto.jpg">
+          <div class="card-body">
+            <h3>Coto Makassar</h3>
+            <p>Coto Makassar adalah makanan tradisional khas Sulawesi Selatan berupa sup 
+              daging dan jeroan sapi dengan kuah kental kaya rempah dan gurih, yang diolah 
+              dengan bumbu khusus seperti kacang tanah halus, serai, dan kayu manis. 
+              Dihidangkan dengan ketupat atau buras serta sambal tauco, coto ini diperkirakan 
+              berasal dari zaman Kerajaan Gowa dan menjadi salah satu kuliner legendaris yang 
+              banyak dicari di Makassar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/kapurung.jpg">
+          <div class="card-body">
+            <h3>Kapurung</h3>
+            <p>Kapurung adalah makanan tradisional khas Sulawesi Selatan, terutama dari Tanah Luwu, 
+              yang terbuat dari sagu yang dibulatkan dan disajikan dengan kuah kaya sayuran seperti bayam, 
+              kacang panjang, jantung pisang, dan jagung, serta bisa ditambahkan protein seperti udang 
+              atau suwiran ikan. Makanan ini memiliki cita rasa asam, segar, dan gurih yang khas, serta 
+              sering dianggap sebagai hidangan yang menyatukan keluarga dan teman. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/barongko.jpg">
+          <div class="card-body">
+            <h3>Barongko</h3>
+            <p>Barongko adalah makanan khas Sulawesi Selatan, terutama dari Suku Bugis. 
+              Nama <i>Barongko</i> berasal dari ungkapan <i>barangku mua udoko</i> yang berarti barangku 
+              sendiri yang kubungkus, menggambarkan adonan pisang yang dibungkus daun pisang. 
+              Dahulu Barongko disajikan untuk para raja Bugis, namun kini menjadi hidangan khas 
+              masyarakat Sulawesi Selatan yang sering disajikan dalam upacara adat dan pernikahan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tradisi" class="container">
+    <div class="section-title"><h2>Tradisi Sulawesi Selatan</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/mappa.jpg">
+          <div class="card-body">
+            <h3>Mappadendang</h3>
+            <p>Mappadendang adalah ritual masyarakat Bugis di Sulawesi Selatan sebagai ungkapan syukur. 
+              Kegiatan ini dilakukan dengan menumbuk gabah bersama di lesung sambil diiringi irama 
+              dan gerakan tari yang melambangkan kesuburan serta harapan agar hasil panen membawa berkah.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/accera.jpg">
+          <div class="card-body">
+            <h3>Accera Kalompoang</h3>
+            <p>Accera Kalompoang adalah upacara adat sakral Kerajaan Gowa di Sulawesi Selatan. 
+              Dalam ritual ini, benda pusaka dibersihkan dengan darah sebagai lambang penyucian, dan 
+              hasil penimbangan <i>Salokoa</i> dipercaya menentukan kemakmuran atau menurunnya 
+              kesejahteraan masyarakat Gowa.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/nene.jpg">
+          <div class="card-body">
+            <h3>Ma' Nene'</h3>
+            <p>Ma' Nene' merupakan sebuah ritual adat dalam budaya Suku Toraja. 
+              Ritual ini merupakan sebuah ritual di mana mayat yang berusia puluhan 
+              bahkan ratusan tahun yang lalu dikeluarkan dari dalam liang kuburan untuk 
+              dibersihkan dan diganti baju dan kainnya</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <section id="destinasi" class="container">
+    <div class="section-title"><h2>Jelajahi Destinasi Wisata</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/taka.jpg">
+          <div class="tour-overlay">
+            <h3>Taman Nasional Taka Bonerate</h3>
+            <p>Taman Nasional Taka Bonerate adalah taman laut dengan atol terbesar ketiga di dunia, terkenal dengan terumbu karang dan habitat baby shark</p>
+            <a href="https://maps.app.goo.gl/MR3PXeEkyHz4vFXG6?g_st=iw" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/malino.jpg">
+          <div class="tour-overlay">
+            <h3>Malino Hinglands</h3>
+            <p>Malino Highland adalah kawasan wisata di dataran tinggi Gowa, Sulawesi Selatan, dengan udara sejuk dan 
+              pemandangan kebun teh yang indah</p>
+            <a href="https://maps.app.goo.gl/PYNeoRSmaBrWBDuq8?g_st=iw" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/bira.jpg">
+          <div class="tour-overlay">
+            <h3>Pantai Tanjung Bira</h3>
+            <p>Pantai Tanjung Bira adalah pantai pasir putih yang terletak di Bulukumba, Sulawesi Selatan, 
+              terkenal dengan keindahan alam dan air laut yang jernih</p>
+              <a href="https://maps.app.goo.gl/mZzLeh44ceapfSsb6?g_st=iw" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/leang.jpg">
+          <div class="tour-overlay">
+            <h3>Taman Arkeologi Leang Leang</h3>
+            <p>Taman Arkeologi Leang-Leang adalah kawasan gua di Sulawesi Selatan yang menyimpan lukisan dan artefak 
+              manusia purba berusia ribuan tahun sebagai warisan budaya dan sumber edukasi.</p>
+            <a href="https://maps.app.goo.gl/G6Kzwq2bPwwfPDSF6?g_st=iw" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/ketekesu.jpg">
+          <div class="tour-overlay">
+            <h3>Kete Kesu</h3>
+            <p>Kete Kesu di Toraja adalah objek wisata budaya terkenal yang menawarkan rumah adat Tongkonan, 
+              kuburan batu kuno, dan berbagai upacara adat tradisional yang masih terjaga dengan baik</p>
+            <a href="https://maps.app.goo.gl/4B24TetGHXaJVvaW9?g_st=iw" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="tour-card" onclick="toggleOverlay(this)">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/kali dingin.jpg">
+          <div class="tour-overlay">
+            <h3>Air Terjun Kali Dingin</h3>
+            <p>Air Terjun Kali Dingin di Luwu Timur adalah air terjun alami dengan pemandangan hijau dan air 
+              jernih yang mengalir di bebatuan berlumut dengan suasana sejuk alami</p>
+            <a href="https://maps.app.goo.gl/1xaKrUhwahJmVkyw8?g_st=iw" target="_blank" class="btn-tour">Lokasi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
