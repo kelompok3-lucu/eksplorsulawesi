@@ -96,8 +96,8 @@
 
     .people {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 100px 50px;
       justify-content: center;
       align-items: start;
       padding: 60px;
@@ -207,8 +207,8 @@
     }
     @media (max-width: 600px) {
       .person {
-        margin-top: 60px; /* kasih ruang antar card */
-        padding-top: 80px; /* tambah ruang untuk foto */
+        margin-top: 60px; 
+        padding-top: 80px; 
       }
     }
   </style>
@@ -280,7 +280,7 @@
 
       <div class="person">
         <div class="profile-pic">
-      <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/febriana.jpg">
+      <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/febri.jpg">
     </div>
         <h2>Febriana AR</h2>
         <p>230112500012</p>
@@ -310,4 +310,3 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
