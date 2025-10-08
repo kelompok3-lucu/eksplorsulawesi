@@ -1,0 +1,474 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #d6ccc2;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+         .navbar {
+          background-color: #6F4D38;
+          background-size: cover;
+          border: none;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          height: 70px;
+          align-items: center;
+        }
+
+        .navbar:before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.2); 
+          z-index: -1;
+        }
+        .navbar-brand, .navbar-nav > li > a {
+          color: #F5F5DC !important;
+          font-family: Poppins;
+          font-weight: bold;
+          font-size: larger;
+          margin-top: 10px;
+        }
+        .navbar-nav > li > a:hover, .navbar-brand:hover {
+          color: #f4a460 !important;
+        }
+        .navbar a.active {
+          color: #ff9933 !important;
+        }
+        .navbar a:hover {
+          color: #ffb366 !important;
+        }
+
+        @media (max-width: 767px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.5); 
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+        .navbar-collapse .navbar-nav {
+          float: none;
+          display: block; 
+          text-align: center;
+        }
+        .navbar-collapse .navbar-nav > li {
+          float: none;
+          margin-bottom: 10px;
+        }
+
+        .navbar-collapse .navbar-nav > li > a {
+          color: white;
+          font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover {
+          color: #f4a460;
+        }
+      }
+    
+    .container {
+      max-width: 1200px;
+    }
+    
+    h2 {
+      color: #8B4513;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .profile-box {
+      display: inline-block;
+      width: 320px;
+      margin-right: 25px;
+      vertical-align: top;
+      white-space: normal;
+      height: auto;
+      margin-top: 100px;
+    }
+    
+    .thumbnail {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      border-radius: 12px;
+      background: #fffaf0;
+      overflow: visible;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    .thumbnail:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .profile-img {
+      border-radius: 50%;
+      width: 200px;
+      height: auto;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+      border: 7px solid #6F4D38;
+    }
+    .profile-img:hover {
+          transform: scale(1.02);
+          transition: transform 0.8s ease;
+    }
+    .profile-name {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #8B4513;;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    
+    .profile-info {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 8px 12px;
+      font-size: 14px;
+    }
+    
+    .info-icon {
+      color: #8B4513;;
+      text-align: center;
+      margin-top: 2px;
+    }
+    
+    .info-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .info-label {
+      font-weight: bold;
+      color: #2F2F2F;
+      margin-bottom: 2px;
+    }
+    
+    .info-value {
+      color: #555;
+      word-break: break-word;
+      white-space: normal;
+    }
+    
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .scroll-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: #D2691E;
+      border-radius: 10px;
+    }
+    
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+      background: #8B4513;;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-box {
+        width: 280px;
+      }
+      
+      .profile-img {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profil.html" class="active">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >
+            Provinsi <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="sulut.html">Sulawesi Utara</a></li>
+            <li><a href="gorontalo.html">Gorontalo</a></li>
+            <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+            <li><a href="sulbar.html">Sulawesi Barat</a></li>
+            <li><a href="sulsel.html">Sulawesi Selatan</a></li>
+            <li><a href="sultra.html">Sulawesi Tenggara</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="scroll-container">
+      <div class="profile-box">
+        <div class="thumbnail">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/fadiyah.jpg" alt="Profil 1" class="profile-img">
+          <h3 class="profile-name">Fadiyah Nurul Ilmi</h3>
+          <div class="profile-info">
+            <div class="info-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">NIM</div>
+              <div class="info-value">230112501020</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Tempat, Tanggal Lahir</div>
+              <div class="info-value">Wawondula, 23 Juni 2005</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Asal</div>
+              <div class="info-value">Luwu Utara</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Alamat</div>
+              <div class="info-value">Jl. Sungai Saddang Baru</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Hobby</div>
+              <div class="info-value">Traveling, Fotografi</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Motto</div>
+              <div class="info-value">Don't stop when you're tired, stop when you're done</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="profile-box">
+        <div class="thumbnail">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/bila.jpg" alt="Profil 2" class="profile-img">
+          <h3 class="profile-name">Nabila Azzahra</h3>
+          <div class="profile-info">
+            <div class="info-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">NIM</div>
+              <div class="info-value">230112500016</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Tempat, Tanggal Lahir</div>
+              <div class="info-value">Tinggas-Tinggas, 21 Juli 2005</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Asal</div>
+              <div class="info-value">Polman</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Alamat</div>
+              <div class="info-value">Jl. Malengkeri III</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Hobby</div>
+              <div class="info-value">Baca Novel</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Motto</div>
+              <div class="info-value">"You don't have to be great to start, but you have to start to be great"-Zig Ziglar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="profile-box">
+        <div class="thumbnail">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/febri.jpg" alt="Profil 3" class="profile-img">
+          <h3 class="profile-name">Febriana AR</h3>
+          <div class="profile-info">
+            <div class="info-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">NIM</div>
+              <div class="info-value">230112500012</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Tempat, Tanggal Lahir</div>
+              <div class="info-value">Sinjai, 28 Februari 2005</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Asal</div>
+              <div class="info-value">sinjai</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Alamat</div>
+              <div class="info-value">Jl. Sunu Komp. Unhas Baraya</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Hobby</div>
+              <div class="info-value">Badminton</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Motto</div>
+              <div class="info-value">Jadilah versi terbaik dari dirimu sendiri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-box">
+        <div class="thumbnail">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/luppi.jpg" alt="Profil 4" class="profile-img">
+          <h3 class="profile-name">Muh. Luthfi Sarkawi</h3>
+          <div class="profile-info">
+            <div class="info-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">NIM</div>
+              <div class="info-value">230112501056</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Tempat, Tanggal Lahir</div>
+              <div class="info-value">Masamba, 11 Juli 2005</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Asal</div>
+              <div class="info-value">Masamba</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Alamat</div>
+              <div class="info-value">Jl. Mannuruki 2</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Hobby</div>
+              <div class="info-value">Aktivitas Outdoor</div>
+            </div>
+            
+            <div class="info-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Motto</div>
+              <div class="info-value">Menjadi pribadi yang berguna</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

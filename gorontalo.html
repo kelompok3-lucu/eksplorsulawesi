@@ -1,0 +1,500 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #F5F5DC;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+         .navbar {
+          background: #6f4d38;
+          background-size: cover;
+          border: none;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          height: 70px;
+          align-items: center;
+          
+        }
+
+        .navbar:before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.2); 
+          z-index: -1;
+        }
+
+        .navbar-brand, .navbar-nav > li > a {
+          color: #F5F5DC !important;
+          font-family: Poppins;
+          font-weight: bold;
+          font-size: larger;
+          margin-top: 10px;
+        }
+        .navbar-nav > li > a:hover, .navbar-brand:hover {
+          color: #f4a460 !important;
+        }
+        .navbar a.active {
+          color: #ff9933 !important;
+        }
+        .navbar a:hover {
+          color: #ffb366 !important;
+        }
+
+        @media (max-width: 767px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.5); 
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+        .navbar-collapse .navbar-nav {
+          float: none;
+          display: block; 
+          text-align: center;
+        }
+        .navbar-collapse .navbar-nav > li {
+          float: none;
+          margin-bottom: 10px;
+        }
+
+        .navbar-collapse .navbar-nav > li > a {
+          color: white;
+          font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover {
+          color: #f4a460;
+        }
+      }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #d6ccc2;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 32px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            color: #6f4d38;
+            font-family: Poppins;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #D2691E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            color: #8B4513;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #F4A460;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+          margin-bottom: 30px;
+          overflow: hidden;
+          text-align: justify;
+        }
+        .card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+        .card-body {
+          padding: 15px;
+        }
+        .card-body h3 {
+          color: #8b4513;
+          font-size: 20px;
+          text-align: left;
+          font-weight: bold;
+        }
+
+        .card:hover {
+          transform: translateY(-10px);
+          transition: transform 0.3s ease;
+        }
+        .card:hover img {
+          transform: scale(1.1);
+          transition: transform 0.5s ease;
+        }
+
+        #pakaian .card img {     
+          height: 380px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+         #tradisi .card img {     
+          height: 320px;      
+          object-fit: cover;
+          object-position: top;
+        }
+
+         .tour-card {
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+        .tour-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .tour-card img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .tour-card:hover img {
+          transform: scale(1.1);
+        }
+
+        .tour-overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          padding: 20px;
+        }
+        .tour-card:hover .tour-overlay {
+          opacity: 1;
+        }
+
+        .tour-overlay h3 {
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #F5F5DC;
+          -webkit-text-stroke: 1px #d6ccc2;
+        }
+
+        .tour-overlay p {
+          font-size: 14px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .btn-tour {
+          background-color: #F5F5DC;
+          color: #8B4513 !important;
+          padding: 10px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: 0.3s;
+
+        }
+        .btn-tour:hover {
+          background-color: #d6ccc2;
+          color: #fff;
+        }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="dropdown">
+          <a href="#" class="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Provinsi <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="sulut.html">Sulawesi Utara</a></li>
+            <li><a href="gorontalo.html" class="active">Gorontalo</a></li>
+            <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+            <li><a href="sulbar.html">Sulawesi Barat</a></li>
+            <li><a href="sulsel.html">Sulawesi Selatan</a></li>
+            <li><a href="sultra.html">Sulawesi Tenggara</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Gorontalo</h1>
+      <a href="#pakaian" class="btn btn-lg">Jelajahi Budaya</a>
+    </div>
+  </section>
+
+ 
+  <section id="pakaian" class="container">
+    <div class="section-title"><h2>Pakaian Adat & Simbol Budaya</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pakaian Adat Bili'u.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Bili'u</h3>
+            <p>Bili'u adalah pakaian tradisional yang wajib dikenakan mempelai pria dan wanita dalam upacara pernikahan Gorontalo, 
+              melambangkan kemegahan, kesucian, dan pentingnya menjaga tradisi dalam budaya perkawinan masyarakat Gorontalo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pakaian Adat Galenggo.jpeg">
+          <div class="card-body">
+            <h3>Pakaian Adat Galenggo </h3>
+            <p>Galenggo adalah pakaian tradisional perempuan Gorontalo yang dikenakan secara turun-temurun, melambangkan kebijaksanaan 
+              dan kewibawaan serta berfungsi sebagai simbol estafet nilai-nilai budaya yang terus dijaga dan dilestarikan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pakaian Adat Wolimomo.jpg">
+          <div class="card-body">
+            <h3>Pakaian Adat Wolimomo</h3>
+            <p>Wolimomo adalah pakaian adat kebesaran Gorontalo yang wajib digunakan pada berbagai upacara adat termasuk akad nikah, 
+              memiliki nilai sakral dan formal yang menandakan penghormatan terhadap nilai-nilai tradisional yang diwariskan turun-temurun.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuliner" class="container">
+    <div class="section-title"><h2>Kuliner Khas Gorontalo</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Makanan Ayam Iloni.jpg">
+          <div class="card-body">
+            <h3>Ayam Iloni</h3>
+            <p>Ayam Iloni adalah ayam bakar tradisional khas Gorontalo yang istimewa dengan kekayaan bumbu rempah berlimpah seperti bawang merah, 
+              bawang putih, kunyit, dan kemiri yang membuat cita rasa sangat kaya dan kompleks, menjadi pasangan sempurna untuk nasi putih hangat 
+              dan lalapan segar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Makanan Binte Biluhuta.jpg">
+          <div class="card-body">
+            <h3>Binte Biluhuta</h3>
+            <p>Binte Biluhuta adalah kuliner khas Gorontalo yang berarti "jagung yang disiram", dibuat dari parutan jagung dicampur kelapa parut, udang, 
+              dan ikan cakalang, disirami kuah rempah gurih dengan tambahan daun bawang, tomat, kemangi, cabai, dan air perasan jeruk lemon yang mengenyangkan dan bergizi.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Makanan Perkedel Nike.jpg">
+          <div class="card-body">
+            <h3>Perkedel Nike</h3>
+            <p>Perkedel Nike adalah makanan tradisional khas Gorontalo berbahan dasar ikan Nike yang diolah layaknya perkedel dengan bumbu khas Gorontalo, menjadi lauk populer 
+              pendamping nasi putih yang mudah ditemukan di warung-warung makan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tradisi" class="container">
+    <div class="section-title"><h2>Tradisi Gorontalo</h2></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Tradisi Mandi Safar.jpg">
+          <div class="card-body">
+            <h3>Tradisi Mandi Safar</h3>
+            <p>Mandi Safar adalah ritual pembersihan diri yang dilakukan masyarakat Gorontalo setiap bulan Safar dalam kalender Islam untuk membuang sial dan membersihkan diri dari 
+              segala dosa, diakhiri dengan doa bersama sebagai bentuk penyucian spiritual dan penguatan iman.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Tradisi Tumbilotohe.jpg">
+          <div class="card-body">
+            <h3>Tradisi Tumbilotohe</h3>
+            <p>Tumbilotohe merupakan tradisi masyarakat Gorontalo sejak abad ke-15 untuk menyambut Idul Fitri dengan menggantung lentera pada kerangka kayu yang dihias alikusu (janur kuning), 
+              gantungan pisang melambangkan kesejahteraan, dan tebu melambangkan keramahan serta kemuliaan hati.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Tradisi Walima.jpg">
+          <div class="card-body">
+            <h3>Tradisi Walima</h3>
+            <p>Walima adalah upacara adat Gorontalo yang dilakukan sebagai bentuk rasa syukur setelah seseorang melaksanakan ibadah haji, di mana keluarga mengundang masyarakat untuk makan bersama, pemberian doa, dan ceramah agama guna mempererat tali silaturahmi dan kebersamaan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section id="destinasi" class="container">
+  <div class="section-title"><h2>Jelajahi Destinasi Wisata</h2></div>
+  <div class="row">
+    
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pulau Cinta.jpg">
+        <div class="tour-overlay">
+          <h3>Pulau Cinta</h3>
+          <p>Pulau berbentuk hati di Boalemo ini terkenal sebagai destinasi romantis dengan eco resort dan panorama laut jernih yang menawan.</p>
+          <a href="https://maps.app.goo.gl/QXFAjqcSQ8vEL9iK7" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Pulau Saronde.jpg">
+        <div class="tour-overlay">
+          <h3>Pulau Saronde</h3>
+          <p>Pulau Saronde menawarkan pasir putih, laut biru jernih, dan spot snorkeling indah yang cocok untuk liburan santai di Gorontalo Utara.</p>
+          <a href="https://maps.app.goo.gl/72yMA4tztLc4WKAw9" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Taman Laut Olele.jpeg">
+        <div class="tour-overlay">
+          <h3>Taman Laut Olele</h3>
+          <p>Taman Laut Olele terkenal dengan terumbu karang warna-warni dan spot menyelam spektakuler seperti Goa Jin di perairan Gorontalo.</p>
+          <a href="https://maps.app.goo.gl/3CB1Y3kBLiNHGqEp8" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Benteng Otanaha.jpg">
+        <div class="tour-overlay">
+          <h3>Benteng Otanaha</h3>
+          <p>Benteng bersejarah peninggalan Raja Ilato ini menawarkan pemandangan indah Danau Limboto dan kota Gorontalo dari ketinggian.</p>
+          <a href="https://maps.app.goo.gl/g8vyGaQDCUruuoj59" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Danau Limboto.jpg">
+        <div class="tour-overlay">
+          <h3>Danau Limboto</h3>
+          <p>Danau seluas 3.000 hektare ini menjadi ikon Gorontalo dengan pemandangan sunset indah dan aktivitas wisata air yang menarik.</p>
+          <a href="https://maps.app.goo.gl/Qg98wLfH3nVKArdPA" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="tour-card" onclick="toggleOverlay(this)">
+        <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/Desa Adat Bubohu.webp">
+        <div class="tour-overlay">
+          <h3>Desa Adat Bubohu</h3>
+          <p>Desa Adat Bubohu dikenal sebagai wisata religius yang memadukan budaya, sejarah, dan nilai spiritual masyarakat Gorontalo.</p>
+          <a href="https://maps.app.goo.gl/6Jmes2CQ6H7WdHxw7" target="_blank" class="btn-tour">Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

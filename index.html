@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budaya Sulawesi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #landing-page {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #b8926a, #F5F5DC);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #landing-page.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .bg-bubble {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      bottom: -100px;
+      animation: rise 10s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-1200px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    #landing {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      padding: 3rem 4rem;
+      border-radius: 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .landing-img {
+      width: 35rem;
+      height: 25rem;
+      border-radius: 1rem;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      border: 6px solid #6F4D38;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .landing-img:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+    }
+
+    #landing h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff7f9;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #landing a {
+      background: #6F4D38;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-size: 1.8rem;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    #landing a:hover {
+      background: #f4a460;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .bubbles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .bubbles span {
+      position: absolute;
+      bottom: -100px;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      animation: animate 10s linear infinite;
+    }
+
+    .bubbles span:nth-child(1) { left: 25%; width: 40px; height: 40px; animation-duration: 9s; }
+    .bubbles span:nth-child(2) { left: 10%; width: 25px; height: 25px; animation-duration: 12s; animation-delay: 2s; }
+    .bubbles span:nth-child(3) { left: 70%; width: 30px; height: 30px; animation-duration: 8s; animation-delay: 4s; }
+    .bubbles span:nth-child(4) { left: 50%; width: 50px; height: 50px; animation-duration: 10s; animation-delay: 1s; }
+    .bubbles span:nth-child(5) { left: 85%; width: 35px; height: 35px; animation-duration: 11s; animation-delay: 3s; }
+
+    @keyframes animate {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    #main-website {
+      display: none;
+    }
+
+    #main-website.show {
+      display: block;
+    }
+
+    body {
+      background-color: #F5F5DC;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .navbar {
+      background: #6f4d38;
+      background-size: cover;
+      border: none;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      height: 70px;
+      align-items: center;
+    }
+
+    .navbar:before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.2); 
+      z-index: -1;
+    }
+
+    .navbar-brand, .navbar-nav > li > a {
+      color: #F5F5DC !important;
+      font-family: Poppins;
+      font-weight: bold;
+      font-size: larger;
+      margin-top: 10px;
+    }
+    .navbar-nav > li > a:hover, .navbar-brand:hover {
+      color: #f4a460 !important;
+    }
+    .navbar a.active {
+      color: #ff9933 !important;
+    }
+    .navbar a:hover {
+      color: #ffb366 !important;
+    }
+
+    @media (max-width: 767px) {
+      .navbar-collapse {
+        background: rgba(0,0,0,0.5); 
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+      .navbar-collapse .navbar-nav {
+        float: none;
+        display: block; 
+        text-align: center;
+      }
+      .navbar-collapse .navbar-nav > li {
+        float: none;
+        margin-bottom: 10px;
+      }
+
+      .navbar-collapse .navbar-nav > li > a {
+        color: white;
+        font-weight: bold;
+      }
+      .navbar-collapse .navbar-nav > li > a:hover {
+        color: #f4a460;
+      }
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #d6ccc2;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding-top: 70px;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      padding: 32px;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      color: #6f4d38;
+      font-family: Poppins;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 2rem;
+      color: #6f4d38;
+      font-family: Poppins;  
+    }
+  </style>
+</head>
+
+<body>
+  <div id="landing-page">
+    <div class="bubbles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div id="landing">
+      <img src="https://raw.githubusercontent.com/kelompok3-lucu/eksplorsulawesi/main/kelompok3.jpg" class="landing-img">
+      <h1>SELAMAT DATANG!</h1>
+      <a id="enter-btn">Masuk</a>
+    </div>
+  </div>
+
+  <div id="main-website">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><i class="fa fa-landmark"></i> Budaya Sulawesi</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              Provinsi <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="sulut.html">Sulawesi Utara</a></li>
+              <li><a href="gorontalo.html">Gorontalo</a></li>
+              <li><a href="sulteng.html">Sulawesi Tengah</a></li>
+              <li><a href="sulbar.html">Sulawesi Barat</a></li>
+              <li><a href="sulsel.html">Sulawesi Selatan</a></li>
+              <li><a href="sultra.html">Sulawesi Tenggara</a></li>
+            </ul>
+          </li>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Budaya Sulawesi</h1>
+        <p>Menjelajahi kekayaan budaya, tradisi, dan kuliner khas seluruh provinsi di Pulau Sulawesi.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <script>
+    // Fungsi untuk beralih dari landing page ke halaman utama
+    document.getElementById('enter-btn').addEventListener('click', function() {
+      // Sembunyikan landing page
+      document.getElementById('landing-page').classList.add('hidden');
+      
+      // Tampilkan halaman utama setelah jeda untuk transisi
+      setTimeout(function() {
+        document.getElementById('main-website').classList.add('show');
+      }, 800);
+    });
+  </script>
+</body>
+</html>
